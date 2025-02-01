@@ -1,0 +1,4 @@
+repository "Slither.io/Slither.io@10170508239877@cloud"
+  path "/"
+    br "/main"
+    co "/main"
