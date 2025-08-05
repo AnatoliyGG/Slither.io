@@ -11,8 +11,17 @@ public class PlayerController : NetworkBehaviour
     {
         _mainCamera = Camera.main;
     }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        Initialize();
+    }
+
     private void Update()
     {
+        if (!Application.isFocused) return;
+        
         // Movement
         _mouseInput.x = Input.mousePosition.x;
         _mouseInput.y = Input.mousePosition.y;
@@ -23,7 +32,8 @@ public class PlayerController : NetworkBehaviour
         // Rotate
         if (mouseWorldCoordinates != transform.position)
         {
-            
+            Vector3 targetDirection = mouseWorldCoordinates - transform.position;
+            transform.up = targetDirection;
         }
     }
 }
