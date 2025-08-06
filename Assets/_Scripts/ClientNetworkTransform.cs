@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Unity.Multiplayer.Samples.Utilities.ClientAuhority
 {
+    [DisallowMultipleComponent]
     public class ClientNetworkTransform : NetworkTransform
     {
         protected override bool OnIsServerAuthoritative()
